@@ -14,7 +14,7 @@ import sample.sorting.BubbleSort;
 import sample.sorting.ISort;
 
 @RunWith(Parameterized.class)
-public class BubbleSortTest {
+public class InsertionSortTest {
 	
 	private ISort sort = new BubbleSort();
 	
@@ -30,7 +30,7 @@ public class BubbleSortTest {
 	private int[] input;
 	private int[] output;
 	
-	public BubbleSortTest(int[] beforeSorting, int[] afterSorting) {
+	public InsertionSortTest(int[] beforeSorting, int[] afterSorting) {
 		this.input = beforeSorting;
 		this.output = afterSorting;
 	}

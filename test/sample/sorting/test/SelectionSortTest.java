@@ -27,18 +27,17 @@ public class SelectionSortTest {
 			});
 	}
 	
-	private int[] beforeSorting;
-	private int[] afterSorting;
+	private int[] input;
+	private int[] output;
 	
 	public SelectionSortTest(int[] beforeSorting, int[] afterSorting) {
-		this.beforeSorting = beforeSorting;
-		this.afterSorting = afterSorting;
+		this.input = beforeSorting;
+		this.output = afterSorting;
 	}
 
 	@Test
 	public void testSort() {
-		beforeSorting = sort.sort(beforeSorting);
-		assertThat(Arrays.equals(beforeSorting, afterSorting)).isTrue();
-		sort.display(afterSorting);
+		int[] results = sort.sort(input);
+		assertThat(Arrays.equals(results, output)).isTrue();
 	}
 }
