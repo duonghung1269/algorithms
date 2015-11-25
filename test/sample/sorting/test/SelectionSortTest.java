@@ -10,13 +10,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import sample.sorting.BubbleSort;
 import sample.sorting.ISort;
+import sample.sorting.SelectionSort;
 
 @RunWith(Parameterized.class)
 public class SelectionSortTest {
 	
-	private ISort sort = new BubbleSort();
+	private ISort sort = new SelectionSort();
 	
 	@Parameters
     public static Collection<Object[]> suites() {
@@ -30,9 +30,9 @@ public class SelectionSortTest {
 	private int[] input;
 	private int[] output;
 	
-	public SelectionSortTest(int[] beforeSorting, int[] afterSorting) {
-		this.input = beforeSorting;
-		this.output = afterSorting;
+	public SelectionSortTest(int[] input, int[] expected) {
+		this.input = input;
+		this.output = expected;
 	}
 
 	@Test

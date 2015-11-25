@@ -10,13 +10,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import sample.sorting.BubbleSort;
 import sample.sorting.ISort;
+import sample.sorting.InsertionSort;
 
 @RunWith(Parameterized.class)
 public class InsertionSortTest {
 	
-	private ISort sort = new BubbleSort();
+	private ISort sort = new InsertionSort();
 	
 	@Parameters
     public static Collection<Object[]> suites() {
@@ -30,14 +30,15 @@ public class InsertionSortTest {
 	private int[] input;
 	private int[] output;
 	
-	public InsertionSortTest(int[] beforeSorting, int[] afterSorting) {
-		this.input = beforeSorting;
-		this.output = afterSorting;
+	public InsertionSortTest(int[] input, int[] expected) {
+		this.input = input;
+		this.output = expected;
 	}
 
 	@Test
 	public void testSort() {
 		int[] results = sort.sort(input);
+		sort.display(results);
 		assertThat(Arrays.equals(results, output)).isTrue();
 	}
 }

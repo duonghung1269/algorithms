@@ -12,4 +12,10 @@ public abstract class AbstractSort implements ISort {
 		System.out.println(sb.toString());
 	}
 	
+	protected void swap(int[] array, int firstIndex, int secondIndex) {
+		int tmp = array[firstIndex];
+		array[firstIndex] = array[secondIndex];
+		array[secondIndex] = tmp;
+	}
+	
 }

@@ -30,9 +30,9 @@ public class BubbleSortTest {
 	private int[] input;
 	private int[] output;
 	
-	public BubbleSortTest(int[] beforeSorting, int[] afterSorting) {
-		this.input = beforeSorting;
-		this.output = afterSorting;
+	public BubbleSortTest(int[] input, int[] expected) {
+		this.input = input;
+		this.output = expected;
 	}
 
 	@Test

@@ -1,5 +1,11 @@
 package sample.sorting;
 
+/**
+ * 
+ * https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif
+ * @author SGSCDHDX
+ *
+ */
 public class BubbleSort extends AbstractSort implements ISort {
 	
 	public int[] sort(int[] array) {
@@ -7,9 +13,7 @@ public class BubbleSort extends AbstractSort implements ISort {
 		for (int i = 0; i < array.length - sorted; i++) {
 			for (int j = 0; j <= array.length - sorted - 2; j++) {
 				if (array[j] > array[j+1]) {
-					int tmp = array[j+1];
-					array[j+1] = array[j];
-					array[j] = tmp;
+					swap(array, j, j + 1);
 				}
 			}
 			sorted++;
