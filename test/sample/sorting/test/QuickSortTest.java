@@ -8,8 +8,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import sample.sorting.BubbleSort;
-import sample.sorting.ISort;
 import sample.sorting.QuickSort;
 
 @RunWith(Parameterized.class)
@@ -36,7 +34,8 @@ public class QuickSortTest {
     
     @Test
     public void testSort() {
-    	sort.partition(input, 0, input.length - 1);
-    	sort.display(input);
+    	output = sort.sort(input);
+    	//sort.partition(input, 0, input.length - 1);
+    	sort.display(output);
     }
 }
