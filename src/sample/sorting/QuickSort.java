@@ -10,10 +10,56 @@ public class QuickSort extends AbstractSort implements ISort {
 
 	@Override
 	public int[] sort(int[] array) {
-		// TODO Auto-generated method stub
-		return null;
+//		int pivotIndex = array.length / 2;
+//		int pivotValue = array[pivotIndex];
+//		System.out.println("pivot value: " + pivotValue);
+//		
+//		int smaller = 0, equal = 0, larger = array.length;
+//		while (equal < larger) {
+//			if (array[equal] < pivotValue) {
+//				swap(array, smaller++, equal++);
+//			} else if (array[equal] == pivotValue) {
+//				equal++;
+//			} else {
+//				swap(array, equal, --larger);
+//			}
+//		}
+		
+		quicksort(array, 0, array.length - 1);
+		
+		return array;
 	}
 
+	private void quicksort(int[] arr, int low, int high) {
+		int i = low;
+		int j = high;
+		int pivotVal = arr[low + (high - low)/2];
+		
+		while (i <= j) {
+			while(arr[i] < pivotVal) {
+				i++;
+			}
+			
+			while(arr[j] > pivotVal) {
+				j--;
+			}
+			
+			if (i <= j) {
+				swap(arr, i, j);
+				i++;
+				j--;
+			}
+		}
+		
+		if (low < j) {
+			quicksort(arr, low, j);
+		}
+		
+		if (i < high) {
+			quicksort(arr, i, high);
+		}
+	}
+	
 	/**
 	 * We’ll try to partition the array like a card game.
 	 * First, assume that the pivot is the leftmost element.
@@ -58,4 +104,20 @@ public class QuickSort extends AbstractSort implements ISort {
 		swap(array, low, firstOpenedCardIndex -1);
 	}
 	
+	public void sort(int[] array, int pivotIndex) {
+		int pivotValue = array[pivotIndex];
+		
+		int smaller = 0, equal = 0, larger = array.length;
+		while (equal < larger) {
+			if (array[equal] < pivotValue) {
+				swap(array, smaller, equal);
+				smaller++;
+				equal++;
+			} else if (array[equal] == pivotValue) {
+				equal++;
+			} else {
+				swap(array, equal++, --larger);
+			}
+		}
+	}
 }
