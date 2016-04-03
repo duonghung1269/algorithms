@@ -10,6 +10,44 @@ public class Node<T> {
 		this.nodeValue = value;
 	}
 	
+	public boolean isBalanced(Node<T> root) {
+		return (maxDept(root) - minDept(root)) < 2;
+	}
+	
+	public int maxDept(Node<T> root) {
+		if (root == null) {
+			return 0;
+		}
+		
+		return 1 + Math.max(maxDept(root.leftNode), maxDept(root.rightNode));
+	}
+	
+	public int minDept(Node<T> root) {
+		if (root == null) {
+			return 0;
+		}
+		
+		return 1 + Math.min(minDept(root.leftNode), minDept(root.rightNode));
+	}
+	
+	public Node<T> searchByValue(Node<T> root, T value) {
+		if (root == null) {
+			return null;
+		}
+		
+		if (root.getNodeValue().equals(value)) {
+			return root;
+		}
+		
+		if (value < root.getNodeValue()) {
+			return searchByValue(root.getLeftNode(), value);
+		}
+		
+		if (value > root.getNodeValue()) {
+			return searchByValue(root.getRightNode(), value);
+		}
+	}
+	
 	public Node<T> getLeftNode() {
 		return leftNode;
 	}
