@@ -126,4 +126,14 @@ public class ProblemsSolving {
 		String input = "PAYPALFERWAIAMONYSSDYETTRNESOHETSAFE";
 		System.out.print(clockwiseSpriralPattern(input));
 	}
+	
+	public static void reverseString(String s) {
+		if (s.length() == 0) {
+			return;
+		}
+		
+		reverseString(s.substring(1, s.length()));
+		System.out.print(s.charAt(0));
+	}
+	
 }

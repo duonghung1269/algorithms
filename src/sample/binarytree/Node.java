@@ -1,6 +1,6 @@
 package sample.binarytree;
 
-public class Node<T> {
+public abstract class Node<T> {
 	
 	private T nodeValue;
 	private Node<T> leftNode;
@@ -34,18 +34,21 @@ public class Node<T> {
 		if (root == null) {
 			return null;
 		}
+
+		Node<T> result = null;
+		if (root.getLeftNode() != null) {
+			result = searchByValue(root.getLeftNode(), value);
+		}
 		
-		if (root.getNodeValue().equals(value)) {
+		if (result == null && root.getNodeValue().equals(value)) {
 			return root;
 		}
 		
-		if (value < root.getNodeValue()) {
-			return searchByValue(root.getLeftNode(), value);
+		if (result == null && root.getRightNode() != null) {
+			result = searchByValue(root.getRightNode(), value);
 		}
 		
-		if (value > root.getNodeValue()) {
-			return searchByValue(root.getRightNode(), value);
-		}
+		return result;
 	}
 	
 	public Node<T> getLeftNode() {
@@ -73,4 +76,5 @@ public class Node<T> {
 		System.out.println(nodeValue);
 	}
 	
+	public abstract long getCompareValue();
 }
